@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/models/folder.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1728145206936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1728145206936,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/foundation.dart';\r\nimport 'book.dart';\r\n\r\nclass Folder with ChangeNotifier {\r\n  String id;\r\n  String name;\r\n  List<Folder> subfolders;\r\n  List<Book> books;\r\n  Folder? parent;\r\n\r\n  Folder({\r\n    required this.id,\r\n    required this.name,\r\n    this.subfolders = const [],\r\n    this.books = const [],\r\n    this.parent,\r\n  });\r\n\r\n  void addSubfolder(Folder subfolder) {\r\n    subfolders.add(subfolder);\r\n    subfolder.parent = this;\r\n    notifyListeners();\r\n  }\r\n\r\n  void removeSubfolder(Folder subfolder) {\r\n    subfolders.remove(subfolder);\r\n    notifyListeners();\r\n  }\r\n\r\n  void addBook(Book book) {\r\n    books.add(book);\r\n    notifyListeners();\r\n  }\r\n\r\n  void removeBook(Book book) {\r\n    books.remove(book);\r\n    notifyListeners();\r\n  }\r\n\r\n  void rename(String newName) {\r\n    name = newName;\r\n    notifyListeners();\r\n  }\r\n}"
+        }
+    ]
+}

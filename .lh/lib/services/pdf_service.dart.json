@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/services/pdf_service.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1728144866382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1728144866382,
+            "name": "Commit-0",
+            "content": "import 'dart:io';\r\nimport 'package:path/path.dart' as path;\r\nimport 'package:path_provider/path_provider.dart';\r\nimport '../models/book.dart';\r\nimport '../models/folder.dart';\r\nimport 'database_helper.dart';\r\n\r\nclass BookService {\r\n  final DatabaseHelper _dbHelper = DatabaseHelper.instance;\r\n\r\n  Future<Book> importBook(File pdfFile, Folder targetFolder) async {\r\n    final String fileName = path.basename(pdfFile.path);\r\n    final String bookTitle = path.basenameWithoutExtension(fileName);\r\n    \r\n    final Directory appDocDir = await getApplicationDocumentsDirectory();\r\n    final String appDocPath = appDocDir.path;\r\n    final String newFilePath = path.join(appDocPath, 'books', fileName);\r\n    await pdfFile.copy(newFilePath);\r\n\r\n    final Book newBook = Book(\r\n      id: DateTime.now().toString(),\r\n      title: bookTitle,\r\n      author: 'Unknown',\r\n      filePath: newFilePath,\r\n    );\r\n\r\n    await _dbHelper.insertBook(newBook, targetFolder.id);\r\n    targetFolder.addBook(newBook);\r\n\r\n    return newBook;\r\n  }\r\n\r\n  Future<void> updateBookMetadata(Book book, Folder folder, {String? title, String? author, String? coverImagePath, List<String>? tags}) async {\r\n    book.updateMetadata(\r\n      title: title,\r\n      author: author,\r\n      coverImagePath: coverImagePath,\r\n      tags: tags,\r\n    );\r\n    await _dbHelper.updateBook(book, folder.id);\r\n  }\r\n\r\n  List<Book> searchBooks(List<Book> books, String query) {\r\n    query = query.toLowerCase();\r\n    return books.where((book) =>\r\n      book.title.toLowerCase().contains(query) ||\r\n      book.author.toLowerCase().contains(query) ||\r\n      book.tags.any((tag) => tag.toLowerCase().contains(query))\r\n    ).toList();\r\n  }\r\n\r\n  Future<void> deleteBook(Book book, Folder folder) async {\r\n    folder.removeBook(book);\r\n    await _dbHelper.deleteBook(book.id);\r\n\r\n    final File bookFile = File(book.filePath);\r\n    if (await bookFile.exists()) {\r\n      await bookFile.delete();\r\n    }\r\n\r\n    if (book.coverImagePath != null) {\r\n      final File coverImageFile = File(book.coverImagePath!);\r\n      if (await coverImageFile.exists()) {\r\n        await coverImageFile.delete();\r\n      }\r\n    }\r\n  }\r\n\r\n  Future<List<Book>> loadBooksInFolder(Folder folder) async {\r\n    return await _dbHelper.getBooksInFolder(folder.id);\r\n  }\r\n}"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1728119451799,
@@ -20,6 +20,42 @@
                 {
                     "date": 1728119687631,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n   hive: ^2.2.3\r\n   hive_flutter: ^1.1.0\r\n   path_provider: ^2.0.15\r\n   flutter_pdfview: ^1.0.0\r\n-  epub_view: ^3.2.0\r\n   flutter_colorpicker: ^1.0.3\r\n   cupertino_icons: ^1.0.2\r\n \r\n dev_dependencies:\r\n"
+                },
+                {
+                    "date": 1728144677088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,15 +10,15 @@\n \r\n dependencies:\r\n   flutter:\r\n     sdk: flutter\r\n-  file_picker: ^5.2.7\r\n-  hive: ^2.2.3\r\n-  hive_flutter: ^1.1.0\r\n-  path_provider: ^2.0.15\r\n-  flutter_pdfview: ^1.0.0\r\n-  flutter_colorpicker: ^1.0.3\r\n-  cupertino_icons: ^1.0.2\r\n+  provider: ^6.0.0\r\n+  path_provider: ^2.0.11\r\n+  sqflite: ^2.0.2\r\n+  pdf: ^3.8.1\r\n+  flutter_pdfview: ^1.2.1\r\n+  shared_preferences: ^2.0.15\r\n+  # Add other dependencies as needed\r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n     sdk: flutter\r\n"
+                },
+                {
+                    "date": 1728145524608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,10 @@\n   flutter:\r\n     sdk: flutter\r\n   provider: ^6.0.0\r\n   path_provider: ^2.0.11\r\n-  sqflite: ^2.0.2\r\n+  sqflite_common_ffi: ^2.1.1\r\n+  sqflite_common: ^2.2.1\r\n   pdf: ^3.8.1\r\n   flutter_pdfview: ^1.2.1\r\n   shared_preferences: ^2.0.15\r\n   # Add other dependencies as needed\r\n"
+                },
+                {
+                    "date": 1728145752371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,10 @@\n   sqflite_common: ^2.2.1\r\n   pdf: ^3.8.1\r\n   flutter_pdfview: ^1.2.1\r\n   shared_preferences: ^2.0.15\r\n+  file_picker: ^5.2.10\r\n+\r\n   # Add other dependencies as needed\r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n"
+                },
+                {
+                    "date": 1728145969451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,14 +14,12 @@\n   provider: ^6.0.0\r\n   path_provider: ^2.0.11\r\n   sqflite_common_ffi: ^2.1.1\r\n   sqflite_common: ^2.2.1\r\n-  pdf: ^3.8.1\r\n-  flutter_pdfview: ^1.2.1\r\n+  syncfusion_flutter_pdfviewer: ^21.2.3\r\n   shared_preferences: ^2.0.15\r\n   file_picker: ^5.2.10\r\n \r\n-  # Add other dependencies as needed\r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n     sdk: flutter\r\n"
+                },
+                {
+                    "date": 1728145975616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,8 @@\n \r\n dev_dependencies:\r\n   flutter_test:\r\n     sdk: flutter\r\n-  hive_generator: ^2.0.0\r\n-  build_runner: ^2.3.3\r\n \r\n+\r\n flutter:\r\n   uses-material-design: true\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1728146273374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   provider: ^6.0.0\r\n   path_provider: ^2.0.11\r\n   sqflite_common_ffi: ^2.1.1\r\n   sqflite_common: ^2.2.1\r\n-  syncfusion_flutter_pdfviewer: ^21.2.3\r\n+  syncfusion_flutter_pdfviewer: ^27.1.51\r\n   shared_preferences: ^2.0.15\r\n   file_picker: ^5.2.10\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1728146507801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,15 +10,14 @@\n \r\n dependencies:\r\n   flutter:\r\n     sdk: flutter\r\n-  provider: ^6.0.0\r\n-  path_provider: ^2.0.11\r\n-  sqflite_common_ffi: ^2.1.1\r\n-  sqflite_common: ^2.2.1\r\n-  syncfusion_flutter_pdfviewer: ^27.1.51\r\n-  shared_preferences: ^2.0.15\r\n-  file_picker: ^5.2.10\r\n+  syncfusion_flutter_pdfviewer: ^23.1.36\r\n+  path_provider: ^2.1.1\r\n+  sqflite: ^2.3.0\r\n+  provider: ^6.0.5\r\n+  file_picker: ^6.0.0\r\n+  shared_preferences: ^2.2.2\r\n \r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n"
+                },
+                {
+                    "date": 1728146711858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n   sqflite: ^2.3.0\r\n   provider: ^6.0.5\r\n   file_picker: ^6.0.0\r\n   shared_preferences: ^2.2.2\r\n+  sqflite_common_ffi: ^1.0.3+3\r\n \r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n"
+                },
+                {
+                    "date": 1728146742842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n   sqflite: ^2.3.0\r\n   provider: ^6.0.5\r\n   file_picker: ^6.0.0\r\n   shared_preferences: ^2.2.2\r\n-  sqflite_common_ffi: ^1.0.3+3\r\n+  sqflite_common_ffi: ^2.3.3+1\r\n \r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n"
                 }
             ],
             "date": 1728119451799,
