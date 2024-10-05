@@ -1,0 +1,30 @@
+{
+    "sourceFile": "lib/models/book.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1728119105882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728119193342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,27 @@\n-// TODO Implement this library.\n\\ No newline at end of file\n+class Book {\r\n+  final String id;                // Unique ID for each book\r\n+  final String title;             // Title of the book\r\n+  final String author;            // Author of the book\r\n+  final String filePath;          // Path to the book file (e.g., EPUB, PDF)\r\n+  final String genre;             // Genre or folder this book belongs to\r\n+  final String coverImagePath;    // Path to cover image (optional)\r\n+  final String description;       // Short description or summary of the book\r\n+  final DateTime addedDate;       // Date the book was added to the library\r\n+  final int currentPage;          // Last page read (to track progress)\r\n+  final int totalPages;           // Total pages in the book (optional)\r\n+  final String? parentFolder;     // Parent folder or sub-folder information\r\n+\r\n+  Book({\r\n+    required this.id,\r\n+    required this.title,\r\n+    required this.author,\r\n+    required this.filePath,\r\n+    required this.genre,\r\n+    this.coverImagePath = 'assets/book_cover_placeholder.png', // Default placeholder image\r\n+    this.description = '',\r\n+    required this.addedDate,\r\n+    this.currentPage = 0,\r\n+    this.totalPages = 0,\r\n+    this.parentFolder,\r\n+  });\r\n+}\r\n"
+                },
+                {
+                    "date": 1728119306068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,26 @@\n+// lib/models/book.dart\r\n+\r\n class Book {\r\n-  final String id;                // Unique ID for each book\r\n-  final String title;             // Title of the book\r\n-  final String author;            // Author of the book\r\n-  final String filePath;          // Path to the book file (e.g., EPUB, PDF)\r\n-  final String genre;             // Genre or folder this book belongs to\r\n-  final String coverImagePath;    // Path to cover image (optional)\r\n-  final String description;       // Short description or summary of the book\r\n-  final DateTime addedDate;       // Date the book was added to the library\r\n-  final int currentPage;          // Last page read (to track progress)\r\n-  final int totalPages;           // Total pages in the book (optional)\r\n-  final String? parentFolder;     // Parent folder or sub-folder information\r\n+  String id;                // Unique ID for each book\r\n+  String title;             // Title of the book\r\n+  String author;            // Author of the book\r\n+  String filePath;          // Path to the book file (e.g., EPUB, PDF)\r\n+  String genre;             // Genre or folder this book belongs to\r\n+  String coverImagePath;    // Path to cover image (optional)\r\n+  String description;       // Short description or summary of the book\r\n+  DateTime addedDate;       // Date the book was added to the library\r\n+  int currentPage;          // Last page read (to track progress)\r\n+  int totalPages;           // Total pages in the book (optional)\r\n+  String? parentFolder;     // Parent folder or sub-folder information\r\n \r\n   Book({\r\n     required this.id,\r\n     required this.title,\r\n     required this.author,\r\n     required this.filePath,\r\n     required this.genre,\r\n-    this.coverImagePath = 'assets/book_cover_placeholder.png', // Default placeholder image\r\n+    this.coverImagePath = 'assets/book_cover_placeholder.png',\r\n     this.description = '',\r\n     required this.addedDate,\r\n     this.currentPage = 0,\r\n     this.totalPages = 0,\r\n"
+                },
+                {
+                    "date": 1728134194012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,45 @@\n // lib/models/book.dart\r\n \r\n-class Book {\r\n-  String id;                // Unique ID for each book\r\n-  String title;             // Title of the book\r\n-  String author;            // Author of the book\r\n-  String filePath;          // Path to the book file (e.g., EPUB, PDF)\r\n-  String genre;             // Genre or folder this book belongs to\r\n-  String coverImagePath;    // Path to cover image (optional)\r\n-  String description;       // Short description or summary of the book\r\n-  DateTime addedDate;       // Date the book was added to the library\r\n-  int currentPage;          // Last page read (to track progress)\r\n-  int totalPages;           // Total pages in the book (optional)\r\n-  String? parentFolder;     // Parent folder or sub-folder information\r\n+import 'package:hive/hive.dart';\r\n \r\n+part 'book.g.dart';\r\n+\r\n+@HiveType(typeId: 0)\r\n+class Book extends HiveObject {\r\n+  @HiveField(0)\r\n+  String id;\r\n+\r\n+  @HiveField(1)\r\n+  String title;\r\n+\r\n+  @HiveField(2)\r\n+  String author;\r\n+\r\n+  @HiveField(3)\r\n+  String filePath;\r\n+\r\n+  @HiveField(4)\r\n+  String genre;\r\n+\r\n+  @HiveField(5)\r\n+  String coverImagePath;\r\n+\r\n+  @HiveField(6)\r\n+  String description;\r\n+\r\n+  @HiveField(7)\r\n+  DateTime addedDate;\r\n+\r\n+  @HiveField(8)\r\n+  int currentPage;\r\n+\r\n+  @HiveField(9)\r\n+  int totalPages;\r\n+\r\n+  @HiveField(10)\r\n+  String? parentFolder;\r\n+\r\n   Book({\r\n     required this.id,\r\n     required this.title,\r\n     required this.author,\r\n"
+                }
+            ],
+            "date": 1728119105882,
+            "name": "Commit-0",
+            "content": "// TODO Implement this library."
+        }
+    ]
+}
