@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1728119451799,
@@ -56,6 +56,10 @@
                 {
                     "date": 1728146742842,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n   sqflite: ^2.3.0\r\n   provider: ^6.0.5\r\n   file_picker: ^6.0.0\r\n   shared_preferences: ^2.2.2\r\n-  sqflite_common_ffi: ^1.0.3+3\r\n+  sqflite_common_ffi: ^2.3.3+1\r\n \r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n"
+                },
+                {
+                    "date": 1728167572262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n   provider: ^6.0.5\r\n   file_picker: ^6.0.0\r\n   shared_preferences: ^2.2.2\r\n   sqflite_common_ffi: ^2.3.3+1\r\n+  flutter_staggered_animations: ^1.0.0\r\n \r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n"
                 }
             ],
             "date": 1728119451799,
