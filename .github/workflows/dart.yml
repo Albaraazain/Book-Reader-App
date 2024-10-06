@@ -32,7 +32,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           # Specify the Flutter version that includes Dart SDK 3.5.3 or higher
-          flutter-version: '3.13.0' # Update this to the exact version required
+          flutter-version: '3.5.3' # Update this to the exact version required
 
       # 3. Install Dependencies
       - name: Install Dependencies
