@@ -1,0 +1,61 @@
+name: Flutter CI with Auto Commit
+
+# Trigger the workflow on push and pull_request events
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  flutter_ci:
+    runs-on: ubuntu-latest
+
+    # Grant write permissions for GITHUB_TOKEN
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Ensures the workflow checks out the correct branch, especially for pull requests
+          ref: ${{ github.head_ref }}
+
+      # 2. Set up Flutter
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.5' # Specify your desired Flutter version
+
+      # 3. Install Dependencies
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # 4. Analyze the code for potential issues
+      - name: Analyze Code
+        run: flutter analyze
+
+      # 5. Format the code
+      - name: Format Code
+        run: flutter format . --set-exit-if-changed
+
+      # 6. Run Tests (Optional)
+      - name: Run Tests
+        run: flutter test
+
+      # 7. Auto Commit Changes (e.g., formatting)
+      - name: Auto Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "📄 Apply automatic code formatting"
+          file_pattern: '**/*.dart' # Adjust the pattern based on the files you want to commit
+          # Optional: Customize commit author details
+          commit_user_name: "albaraa zain"
+          commit_user_email: "albaraazain33@gmail.com"
+          # Optional: Force push if necessary (use with caution)
+          # push_options: '--force'
+
