@@ -24,12 +24,15 @@ jobs:
         with:
           # Ensures the workflow checks out the correct branch, especially for pull requests
           ref: ${{ github.head_ref }}
+          # Uncomment the next line if using a PAT for protected branches
+          # token: ${{ secrets.PAT_TOKEN }}
 
       # 2. Set up Flutter
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.5' # Specify your desired Flutter version
+          # Specify the Flutter version that includes Dart SDK 3.5.3 or higher
+          flutter-version: '3.13.0' # Update this to the exact version required
 
       # 3. Install Dependencies
       - name: Install Dependencies
@@ -51,8 +54,8 @@ jobs:
       - name: Auto Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "📄 Apply automatic code formatting"
-          file_pattern: '**/*.dart' # Adjust the pattern based on the files you want to commit
+          commit_message: "📄 Apply automatic code formatting [skip ci]"
+          file_pattern: '**/*.dart' # Adjust based on the files you want to commit
           # Optional: Customize commit author details
           commit_user_name: "albaraa zain"
           commit_user_email: "albaraazain33@gmail.com"
